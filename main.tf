@@ -83,13 +83,3 @@ resource "aws_route_table_association" "rt_assoc" {
   subnet_id      = element(aws_subnet.public.*.id, count.index)
   route_table_id = aws_route_table.rt[0].id
 }
-
-# own dns
-resource "aws_vpc_dhcp_options" "main" {
-  domain_name = var.vpc_dns_server
-}
-
-resource "aws_vpc_dhcp_options_association" "dns_resolver" {
-  vpc_id          = local.vpc_id
-  dhcp_options_id = aws_vpc_dhcp_options.main.id
-}
