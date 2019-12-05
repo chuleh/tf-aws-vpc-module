@@ -88,9 +88,3 @@ variable "subnet_tags" {
   type        = map(string)
   default     = {}
 }
-
-variable "vpc_dns_server" {
-  description = "name of the dns resolver"
-  type        = string
-  default     = ""
-}
